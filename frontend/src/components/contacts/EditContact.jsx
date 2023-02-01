@@ -1,11 +1,82 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const EditContact = () => {
-    return (
-        <div>
-            <h2>EditContact</h2>
+let EditContact = () => {
+  return (
+    <React.Fragment>
+      <section className='add-contact p-3'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col'>
+              <p className='h4 text-primary fw-bold'>Edit Contact</p>
+              <p className='fst-italic'>Loren</p>
+            </div>
+          </div>
+          <div className='row'>
+            <form>
+              <div className='mb-2'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Name'
+                />
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='number'
+                  className='form-control'
+                  placeholder='Phone'
+                />
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='number'
+                  className='form-control'
+                  placeholder='Mobile'
+                />
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='email'
+                  className='form-control'
+                  placeholder='Email'
+                />
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Company'
+                />
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Title'
+                />
+              </div>
+              <div className='mb-2'>
+                <select className='form-control'>
+                  <option value=''>Select a Group</option>
+                </select>
+              </div>
+              <div className='mb-2'>
+                <input
+                  type='submit'
+                  className='btn btn-primary'
+                  value='Update'
+                />
+                <Link to={'/contacts/list'} className='btn btn-dark ms-2'>
+                  Cancel
+                </Link>
+              </div>
+            </form>
+          </div>
         </div>
-    );
-}
+      </section>
+    </React.Fragment>
+  );
+};
 
 export default EditContact;
