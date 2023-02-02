@@ -7,7 +7,7 @@ let NavBar = () => {
       <nav className="navbar navbar-dark bg-dark navbar-expand-sm">
         <div className="container">
           <Link to={'/'} className="navbar-brand">
-            <i className="fa fa-mobile text-warning" /> Contact <span className="text-warnig"> Manager</span>
+            <i className="fa fa-mobile text-warning" /> Phone<span className="text-warnig"><b>Book</b></span>
           </Link>
         </div>
       </nav>

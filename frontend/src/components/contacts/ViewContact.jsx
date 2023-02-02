@@ -46,7 +46,7 @@ let ViewContact = () => {
           <div className='row'>
             <div className='col'>
               <p className='h3 text-warning fw-bold'>ViewContact</p>
-              <p className='fst-italic'>lorem</p>
+              <p className='fst-italic'></p>
             </div>
           </div>
         </div>

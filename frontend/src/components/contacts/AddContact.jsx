@@ -67,7 +67,7 @@ let AddContact = () => {
           <div className='row'>
             <div className='col'>
               <p className='h4 text-success fw-bold'>Create Contact</p>
-              <p className='fst-italic'>Loren</p>
+              <p className='fst-italic'></p>
             </div>
           </div>
           <div className='row'>

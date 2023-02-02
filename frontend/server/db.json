@@ -1,43 +1,13 @@
 {
   "contacts": [
     {
-      "id": "D6BNdWnHI",
-      "name": "Brad Gibson",
-      "company": "YouTube",
-      "email": "brad@gmail.com",
-      "title": "Youtuber",
-      "mobile": "9876546787",
-      "phone": "9876546787",
-      "groupId": "3"
-    },
-    {
-      "id": "TVobxeKbI",
-      "name": "Glenda Kim",
-      "company": "Friend",
-      "email": "glenda@gmail.com",
-      "title": "freelancer",
-      "mobile": "8880009991",
-      "phone": "9876546787",
-      "groupId": "2"
-    },
-    {
-      "id": "UyEDV5Yds",
-      "name": "Vladeen Min",
-      "company": "Service",
-      "email": "vladeen@gmail.com",
-      "title": "Electrician",
-      "mobile": "9876546787",
-      "phone": "9876546787",
-      "groupId": "4"
-    },
-    {
       "name": "Thiago Machado",
       "phone": "9876546787",
       "mobile": "9090909090",
       "email": "thiagocmach@gmail.com",
       "company": "Technologies",
       "title": "Fullstack Developer",
-      "groupId": "1",
+      "groupId": "2",
       "id": "kLt-bJF"
     },
     {
@@ -49,6 +19,26 @@
       "title": "pedrero",
       "groupId": "2",
       "id": "3j2wl1H"
+    },
+    {
+      "name": "Julie",
+      "phone": "123457",
+      "mobile": "6549874",
+      "email": "trtr@trt.com",
+      "company": "triac soluções em eletronica",
+      "title": "sdsd",
+      "groupId": "3",
+      "id": "Bp3VhlG"
+    },
+    {
+      "name": "Triac solucoes em eletronica LTDA - ME",
+      "phone": "1230186061",
+      "mobile": "654312",
+      "email": "triacsolucoes@yahoo.com",
+      "company": "ghjfd",
+      "title": "kj",
+      "groupId": "2",
+      "id": "GX0B_Cp"
     }
   ],
   "groups": [
