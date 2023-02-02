@@ -6,6 +6,7 @@ import ContactList from './components/contacts/ContactList';
 import AddContact from './components/contacts/AddContact';
 import ViewContact from './components/contacts/ViewContact';
 import EditContact from './components/contacts/EditContact';
+import Spinner from './components/spinner';
 
 let App = () => {
   const [count, setCount] = useState(0);

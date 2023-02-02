@@ -1,6 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ContactService } from '../../services/ContactService';
+import Spinner from '../spinner';
 let ContactList = () => {
+  let [state, setState] = useState({
+    loading: false,
+    contacts: [],
+    errorMessage: '',
+  });
+
+  // useEffect(async () => {
+  //   try {
+  //     setState({ ...state, loading: true });
+
+  //     let response = await ContactService.getAllContacts();
+  //     console.log(response.data);
+  //     setState({
+  //       ...state,
+  //       loading: false,
+  //       contacts: response.data,
+  //     });
+  //   } catch (error) {
+  //     setState({
+  //       ...state,
+  //       loading: false,
+  //       errorMessage: error.message,
+  //     });
+  //   }
+  // }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setState({ ...state, loading: true });
+        let response = await ContactService.getAllContacts();
+        // console.log(response.data),
+        setState({
+          ...state,
+          loading: false,
+          contacts: response.data,
+        });
+      } catch (error) {
+        setState({
+          ...state,
+          loading: false,
+          errorMessage: error.message,
+        });
+      }
+    }
+    fetchData();
+  }, []);
+
+  let { loading, contacts, errorMessage } = state;
+
   return (
     <React.Fragment>
       <section className='contact-search p-3'>
@@ -45,102 +96,76 @@ let ContactList = () => {
           </div>
         </div>
       </section>
-      <section className='contact-list'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-6'>
-              <div className='card'>
-                <div className='card-body'>
-                  <div className='row align-items-center d-flex justify-content-around'>
-                    <div className='col-md-4'>
-                      <img
-                        src='https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png'
-                        alt=''
-                        className='contact-img'
-                      />
-                    </div>
-                    <div className='col-md-7'>
-                      <ul className='list-group'>
-                        <li className='list-group-items list-group-item-action'>
-                          Name : <span className='fw-bold'>Thiago</span>
-                        </li>
-                        <li className='list-group-items list-group-item-action'>
-                          Mobile : <span className='fw-bold'>897984231</span>
-                        </li>
-                        <li className='list-group-items list-group-item-action'>
-                          Phone : <span className='fw-bold'>9784515312</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className='col-md-1 d-flex flex-column align-items-center'>
-                      <Link
-                        to={'/contacts/view/:contactId'}
-                        className='btn btn-warning my-1'
-                      >
-                        <i className='fa fa-eye' />
-                      </Link>
-                      <Link
-                        to={'/contacts/edit/:contactId'}
-                        className='btn btn-primary my-1'
-                      >
-                        <i className='fa fa-pen' />
-                      </Link>
-                      <button className='btn btn-danger'>
-                        <i className='fa fa-trash' />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <React.Fragment>
+          <section className='contact-list'>
+            <div className='container'>
+              <div className='row'>
+                {contacts.length > 0 &&
+                  contacts.map((contacts) => {
+                    return (
+                      <div className='col-md-6' key={contacts.id}>
+                        <div className='card my-2'>
+                          <div className='card-body'>
+                            <div className='row align-items-center d-flex justify-content-around'>
+                              <div className='col-md-4'>
+                                <svg
+                                  xmlns='http://www.w3.org/2000/svg'
+                                  width='16'
+                                  height='16'
+                                  fill='currentColor'
+                                  className='bi bi-person contact-img'
+                                  viewBox='0 0 16 16'
+                                >
+                                  <path d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z' />
+                                </svg>
+                              </div>
+                              <div className='col-md-7'>
+                                <ul className='list-group'>
+                                  <li className='list-group-items list-group-item-action'>
+                                    Name :{' '}
+                                    <span className='fw-bold'>{contacts.name}</span>
+                                  </li>
+                                  <li className='list-group-items list-group-item-action'>
+                                    Mobile :{' '}
+                                    <span className='fw-bold'>{contacts.mobile}</span>
+                                  </li>
+                                  <li className='list-group-items list-group-item-action'>
+                                    Phone :{' '}
+                                    <span className='fw-bold'>{contacts.phone}</span>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className='col-md-1 d-flex flex-column align-items-center'>
+                                <Link
+                                  to={`/contacts/view/${contacts.id}`}
+                                  className='btn btn-warning my-1'
+                                >
+                                  <i className='fa fa-eye' />
+                                </Link>
+                                <Link
+                                  to={'/contacts/edit/:contactId'}
+                                  className='btn btn-primary my-1'
+                                >
+                                  <i className='fa fa-pen' />
+                                </Link>
+                                <button className='btn btn-danger'>
+                                  <i className='fa fa-trash' />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
-            <div className='col-md-6'>
-              <div className='card'>
-                <div className='card-body'>
-                  <div className='row align-items-center d-flex justify-content-around'>
-                    <div className='col-md-4'>
-                      <img
-                        src='https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png'
-                        alt=''
-                        className='contact-img'
-                      />
-                    </div>
-                    <div className='col-md-7'>
-                      <ul className='list-group'>
-                        <li className='list-group-items list-group-item-action'>
-                          Name : <span className='fw-bold'>Thiago</span>
-                        </li>
-                        <li className='list-group-items list-group-item-action'>
-                          Mobile : <span className='fw-bold'>897984231</span>
-                        </li>
-                        <li className='list-group-items list-group-item-action'>
-                          Phone : <span className='fw-bold'>9784515312</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className='col-md-1 d-flex flex-column align-items-center'>
-                      <Link
-                        to={'/contacts/view/:contactId'}
-                        className='btn btn-warning my-1'
-                      >
-                        <i className='fa fa-eye' />
-                      </Link>
-                      <Link
-                        to={'/contacts/edit/:contactId'}
-                        className='btn btn-primary my-1'
-                      >
-                        <i className='fa fa-pen' />
-                      </Link>
-                      <button className='btn btn-danger'>
-                        <i className='fa fa-trash' />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };
