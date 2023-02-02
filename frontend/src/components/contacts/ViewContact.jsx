@@ -10,6 +10,7 @@ let ViewContact = () => {
     loading: false,
     contact: {},
     errorMessage: '',
+    group: {},
   });
 
   useEffect(() => {
@@ -20,10 +21,12 @@ let ViewContact = () => {
           loading: true,
         });
         let response = await ContactService.getContact(contactId);
+        let groupResponse = await ContactService.getGroup(response.data);
         setState({
           ...state,
           loading: false,
           contact: response.data,
+          group: groupResponse.data,
         });
       } catch (error) {
         setState({
@@ -35,7 +38,7 @@ let ViewContact = () => {
     fetchData();
   }, [contactId]);
 
-  let { loading, contact, errorMessage } = state;
+  let { loading, contact, errorMessage, group } = state;
   return (
     <React.Fragment>
       <section className='view-contact-intro p-3'>
@@ -53,7 +56,7 @@ let ViewContact = () => {
         <Spinner />
       ) : (
         <React.Fragment>
-          {Object.keys(contact).length > 0 && (
+          {Object.keys(contact).length > 0 && Object.keys(group).length > 0 && (
             <section className='view-contact mt-3'>
               <div className='container'>
                 <div className='row align-items-center'>
@@ -75,7 +78,8 @@ let ViewContact = () => {
                         Name : <span className='fw-bold'>{contact.name}</span>
                       </li>
                       <li className='list-group-items list-group-item-action'>
-                        Mobile : <span className='fw-bold'>{contact.mobile}</span>
+                        Mobile :{' '}
+                        <span className='fw-bold'>{contact.mobile}</span>
                       </li>
                       <li className='list-group-items list-group-item-action'>
                         Phone : <span className='fw-bold'>9784515312</span>
@@ -84,13 +88,15 @@ let ViewContact = () => {
                         email : <span className='fw-bold'>{contact.email}</span>
                       </li>
                       <li className='list-group-items list-group-item-action'>
-                        Company : <span className='fw-bold'>{contact.company}</span>
+                        Company :{' '}
+                        <span className='fw-bold'>{contact.company}</span>
                       </li>
                       <li className='list-group-items list-group-item-action'>
                         Title : <span className='fw-bold'>{contact.title}</span>
                       </li>
                       <li className='list-group-items list-group-item-action'>
-                        Group : <span className='fw-bold'>{contact.groupId}</span>
+                        Group :{' '}
+                        <span className='fw-bold'>{group.name}</span>
                       </li>
                     </ul>
                   </div>
