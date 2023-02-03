@@ -92,7 +92,7 @@ let EditContact = () => {
                   <form onSubmit={submitForm}>
                     <div className='mb-2'>
                       <input
-                        required='true'
+                        required={true}
                         name='name'
                         value={contact.name}
                         onChange={updateInput}
@@ -103,7 +103,7 @@ let EditContact = () => {
                     </div>
                     <div className='mb-2'>
                       <input
-                        required='true'
+                        required={true}
                         name='phone'
                         value={contact.phone}
                         onChange={updateInput}
@@ -114,7 +114,7 @@ let EditContact = () => {
                     </div>
                     <div className='mb-2'>
                       <input
-                        required='true'
+                        required={true}
                         name='mobile'
                         value={contact.mobile}
                         onChange={updateInput}
@@ -125,7 +125,7 @@ let EditContact = () => {
                     </div>
                     <div className='mb-2'>
                       <input
-                        required='true'
+                        required={true}
                         name='email'
                         value={contact.email}
                         onChange={updateInput}
@@ -136,7 +136,7 @@ let EditContact = () => {
                     </div>
                     <div className='mb-2'>
                       <input
-                        required='true'
+                        required={true}
                         name='company'
                         value={contact.company}
                         onChange={updateInput}
@@ -148,7 +148,7 @@ let EditContact = () => {
                     <div className='mb-2'>
                       <input
                         type='text'
-                        required='true'
+                        required={true}
                         name='title'
                         value={contact.title}
                         onChange={updateInput}
@@ -158,14 +158,14 @@ let EditContact = () => {
                     </div>
                     <div
                       className='mb-2'
-                      required='true'
+                      required={true}
                       name='mobile'
                       value={contact.mobile}
                       onChange={updateInput}
                     >
                       <select
                         className='form-control'
-                        required='true'
+                        required={true}
                         name='groupId'
                         value={contact.groupId}
                         onChange={updateInput}
