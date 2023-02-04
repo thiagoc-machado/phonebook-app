@@ -1,6 +1,8 @@
+import './login.css'
+
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../services/UserService';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../services/UserService';
 
 const Login = () => {
   const { loginThunk } = useContext(AuthContext);
@@ -21,12 +23,12 @@ const Login = () => {
   };
 
   return (
-    <div className='Auth-form-container'>
+    <div className='Auth-form-container'> 
       <form className='Auth-form'>
         <div className='Auth-form-content'>
           <h3 className='Auth-form-title'>Sign In</h3>
-          <div className='form-group mt-3'>
-            <label>Email address</label>
+          <div className=' '>
+            <label >Email address</label>
             <input
               type='email'
               className='form-control mt-1'
@@ -49,7 +51,7 @@ const Login = () => {
               onChange={handleInputChange}
             />
           </div>
-          {error && <div className="error">{error}</div>}
+          {error && <div className='error'>{error}</div>}
           <div className='d-grid gap-2 mt-3'>
             <button
               type='submit'
@@ -61,7 +63,11 @@ const Login = () => {
                     navigateTo('/contacts/list');
                   })
                   .catch(() => {
-                    setError(<p className='alert alert-danger p-0'>Invalid username or password.</p>);
+                    setError(
+                      <p className='alert alert-danger p-0'>
+                        Invalid username or password.
+                      </p>
+                    );
                   });
               }}
             >

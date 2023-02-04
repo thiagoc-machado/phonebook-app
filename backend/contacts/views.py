@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from contacts.serializers import ContactsSerializer, GroupsSerializer
 from contacts.models import contacts, groups
+from rest_framework import status
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE']) 
 def contact_View(request, contacts_id=None):
@@ -34,10 +35,10 @@ def contact_View(request, contacts_id=None):
         
         
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
-def group_View(request, group_id=None):
+def group_View(request, groups_id=None):
     if request.method == 'GET':
-        if group_id:
-            group = groups.objects.get(id=group_id)
+        if groups_id:
+            group = groups.objects.get(id=groups_id)
             serializer = GroupsSerializer(group)
             return Response(serializer.data)
         else:
@@ -51,14 +52,14 @@ def group_View(request, group_id=None):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'PUT':
-        group = groups.objects.get(id=group_id)
+        group = groups.objects.get(id=groups_id)
         serializer = GroupsSerializer(group, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        group = groups.objects.get(id=group_id)
+        group = groups.objects.get(id=groups_id)
         group.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
