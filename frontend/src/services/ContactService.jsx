@@ -1,5 +1,6 @@
 import axios from 'axios';
 export class ContactService {
+
   //static serverURL = 'http://localhost:9000';
   static serverURL = 'http://localhost:8000'
 
@@ -18,6 +19,7 @@ export class ContactService {
     let dataURL = `${this.serverURL}/contacts/contacts`;
     return axios.get(dataURL);
   }
+
   static getContact(contactId) {
     let dataURL = `${this.serverURL}/contacts/contacts/${contactId}/`;
     return axios.get(dataURL);
@@ -38,5 +40,5 @@ export class ContactService {
     let dataURL = `${this.serverURL}/contacts/contacts/${contactId}/`;
     return axios.delete(dataURL);
   }
-  
+
 }

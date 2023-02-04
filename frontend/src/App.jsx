@@ -1,26 +1,32 @@
-import { useState } from 'react';
-import './App.css';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import ContactList from './components/contacts/ContactList';
-import AddContact from './components/contacts/AddContact';
-import ViewContact from './components/contacts/ViewContact';
-import EditContact from './components/contacts/EditContact';
-import Spinner from './components/spinner';
+import { Password } from '@mui/icons-material';
+import axios from 'axios';
+import React, { useReducer } from 'react';
+import { authReducer, LOGIN } from './components/redicers/authReducer';
+import Routers from './routers/routers';
+
+import { AuthContext } from './services/UserService';
 
 let App = () => {
-  const [count, setCount] = useState(0);
+  const [data, dispatch] = useReducer(authReducer, { token: null });
+
+  const loginThunk = async (username, password) => {
+    const res = await axios.post('http://localhost:8000/auth/', {
+      username: username,
+      password: password,
+    });
+    dispatch({ type: LOGIN, token: res.data.token });
+  };
 
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path={'/'} element={<Navigate to={'/contacts/list'} />} />
-        <Route path={'/contacts/list'} element={<ContactList />} />
-        <Route path={'/contacts/add'} element={<AddContact />} />
-        <Route path={'/contacts/view/:contactId'} element={<ViewContact />} />
-        <Route path={'/contacts/edit/:contactId'} element={<EditContact />} />
-      </Routes>
+      <AuthContext.Provider
+        value={{
+          data,
+          loginThunk,
+        }}
+      >
+        <Routers />
+      </AuthContext.Provider>
     </>
   );
 };
