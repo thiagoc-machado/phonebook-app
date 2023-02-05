@@ -80,7 +80,7 @@ let EditContact = () => {
       ) : (
         <React.Fragment>
           <section className='add-contact p-3'>
-            <div className='container'>
+            <div className='containers'>
               <div className='row'>
                 <div className='col'>
                   <p className='h4 text-primary fw-bold'>Edit Contact</p>

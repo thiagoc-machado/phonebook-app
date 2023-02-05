@@ -41,8 +41,8 @@ let ViewContact = () => {
   let { loading, contact, errorMessage, group } = state;
   return (
     <React.Fragment>
-      <section className='view-contact-intro p-3'>
-        <div className='container'>
+      <section className='view-contact-intro p-3 '>
+        <div className='containers'>
           <div className='row'>
             <div className='col'>
               <p className='h3 text-warning fw-bold'>ViewContact</p>
@@ -58,7 +58,7 @@ let ViewContact = () => {
         <React.Fragment>
           {Object.keys(contact).length > 0 && Object.keys(group).length > 0 && (
             <section className='view-contact mt-3'>
-              <div className='container'>
+              <div className='containers'>
                 <div className='row align-items-center'>
                   <div className='col-md-4'>
                     <svg

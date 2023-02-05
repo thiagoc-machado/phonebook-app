@@ -1,8 +1,10 @@
 import axios from 'axios';
-export class ContactService {
+import { useReducer } from 'react';
 
+
+export class ContactService {
   //static serverURL = 'http://localhost:9000';
-  static serverURL = 'http://localhost:8000' 
+  static serverURL = 'http://localhost:8000';
 
   static getGroups() {
     let dataURL = `${this.serverURL}/groups/groups`;
@@ -27,12 +29,13 @@ export class ContactService {
 
   static createContact(contact) {
     let dataURL = `${this.serverURL}/contacts/contacts/`;
+    console.log(dataURL, contact)
     return axios.post(dataURL, contact);
   }
 
   static updateContact(contact, contactId) {
     let dataURL = `${this.serverURL}/contacts/contacts/${contactId}/`;
-    console.log(contact)
+    console.log(contact);
     return axios.put(dataURL, contact);
   }
 
@@ -42,8 +45,9 @@ export class ContactService {
   }
 
   static createUser(user) {
-    let dataURL = `${this.serverURL}/auth/`;
+    let dataURL = `${this.serverURL}/users/user/`;
     return axios.post(dataURL, user);
   }
-
+  
+  
 }

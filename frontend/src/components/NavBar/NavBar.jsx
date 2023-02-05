@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   AppBar,
   Box,
@@ -24,7 +23,7 @@ export default function NavBar() {
             sx={{ mr: 2 }}
           ></IconButton>
           <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            <Link href={'/'} className='text-light'>
+            <Link href={'/contacts/list'} className='text-light'>
               <i className='fa fa-mobile text-light p-1'/>
               Phone<b>Book</b>
             </Link>
@@ -40,27 +39,3 @@ export default function NavBar() {
   );
 }
 
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// let NavBar = () => {
-//   return (
-//     <React.Fragment>
-//       <nav className='navbar navbar-dark bg-dark navbar-expand-sm'>
-//         <div className='container'>
-//           <div className=' navbar-blk'>
-//             <Link to={'/'} className='navbar-brand'>
-//               <i className='fa fa-mobile text-warning' /> Phone <span className='text-warnig'><b>Book</b>
-//               </span>
-//               <div class='d-grid gap-2'>
-//                 <button class='btn btn-primary me-md-2' type='button'>
-//                   Button
-//                 </button>
-//               </div>
-//             </Link>
-//           </div>
-//         </div>
-//       </nav>
-//     </React.Fragment>
-//   );
-// };

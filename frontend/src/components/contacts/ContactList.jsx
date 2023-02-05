@@ -81,7 +81,7 @@ let ContactList = () => {
     <React.Fragment>
       <pre>{query.text}</pre>
       <section className='contact-search p-3'>
-        <div className='container'>
+        <div className='containers'>
           <div className='grid top-blk'>
             <div className='row'>
               <div className='col'>
@@ -129,7 +129,7 @@ let ContactList = () => {
       ) : (
         <React.Fragment>
           <section className='contact-list'>
-            <div className='container'>
+            <div className='containers'>
               <div className='row'>
                 {filteredContacts.length > 0 &&
                   filteredContacts.map((contacts) => {

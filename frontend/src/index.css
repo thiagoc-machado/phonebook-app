@@ -1,22 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 body {
   font-family: 'Ubuntu', sans-serif !important;
   background-color: rgb(240, 248, 255) !important;
 }
 .home-box {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  width: 60%;
-  margin: 100px 20%;
-  padding: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(13, 17, 23, 0.765)),
+    url('/src/assets/agenda.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  padding: 30px;
+}
+
+.containers, .contact-list {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(41, 41, 41, 0.133);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
   border-radius: 10px;
-  font-family: 'Quill Script', cursive;
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.116);
+  padding: 1%;
+}
+.container {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(41, 41, 41, 0.757);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.home-title {
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+}
+.box-r {
+  font-family: 'Ubuntu', sans-serif;
+
+  margin: 40px 0;
+}
+.call {
+  background-color: rgba(215, 234, 250, 0.455);
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  
 }
 
 .home-title {

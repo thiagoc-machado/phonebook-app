@@ -9,8 +9,9 @@ let Logon = () => {
   let [state, setState] = useState({
     loading: false,
     user: {
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
+      username:'',
       email: '',
       password: '',
     },
@@ -29,19 +30,20 @@ let Logon = () => {
 
   let submitForm = async (event) => {
     event.preventDefault();
+    user.username = user.email
     try {
       let response = await ContactService.createUser(state.user);
       if (response) {
-        navigate('/users/list', { replace: true });
+        navigate('/contacts/list', { replace: true });
       }
     } catch (error) {
       setState({ ...state, errorMessage: error.message });
-      navigate('/users/add', { replace: false });
+      navigate('/logon', { replace: false });
     }
   };
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target; 
     setState({
       ...state,
       user: {
@@ -73,8 +75,8 @@ let Logon = () => {
                   <div className='mb-2'>
                     <input
                       required={true}
-                      name='firstName'
-                      value={user.firstName}
+                      name='first_name'
+                      value={user.first_name}
                       onChange={updateInput}
                       type='text'
                       className='form-control'
@@ -84,8 +86,8 @@ let Logon = () => {
                   <div className='mb-2'>
                     <input
                       required={true}
-                      name='lastName'
-                      value={user.lastName}
+                      name='last_name'
+                      value={user.last_name}
                       onChange={updateInput}
                       type='text'
                       className='form-control'

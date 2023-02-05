@@ -34,7 +34,7 @@ let AddContact = () => {
     async function fetchData() {
       try {
         setState({ ...state, loading: true });
-        let response = await ContactService.getGroups();
+        let response = await ContactService.getGroups(); 
         setState({
           ...state,
           loading: false,
@@ -63,7 +63,7 @@ let AddContact = () => {
   return (
     <React.Fragment>
       <section className='add-contact p-3'>
-        <div className='container'>
+        <div className='containers'>
           <div className='row'>
             <div className='col'>
               <p className='h4 text-success fw-bold'>Create Contact</p>
