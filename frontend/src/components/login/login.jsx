@@ -1,7 +1,7 @@
 import './login.css'
 
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../services/UserService';
 
 const Login = () => {
@@ -60,7 +60,7 @@ const Login = () => {
                 e.preventDefault();
                 loginThunk(formState.username, formState.password)
                   .then(() => {
-                    navigateTo('/contacts/list');
+                    navigateTo('/contacts/list')
                   })
                   .catch(() => {
                     setError(

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Link } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -21,11 +22,13 @@ const Home = () => {
             <li>Simple, secure, fast and very easy to use site</li>
           </ul>
           <div className='call'>
-            <Button href={'/logon'} variant='contained' color='success'>
+          <NavLink to={'/logon'}>
+            <Button variant='contained' color='success'>
               Sign up for free
             </Button>
+              </NavLink>
             <br/>
-            <Link href={'/login'}>Already registered? Log in...</Link>
+            <NavLink to={'/login'}>Already registered? Log in...</NavLink>
           </div>
         </div>
       </div>

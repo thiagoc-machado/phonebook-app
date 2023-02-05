@@ -1,14 +1,15 @@
-export const LOGIN = 'LOGIN'
+export const LOGIN = 'LOGIN';
 
 const login = (state, token) => {
-    return {token:token}
-}
+  localStorage.setItem('token', token);
+  return { token: token };
+};
 
 export const authReducer = (state, action) => {
   switch (action.type) {
     case LOGIN:
-      return login(state,action.token)
+      return login(state, action.token);
     default:
-        return state
+      return state;
   }
 };
