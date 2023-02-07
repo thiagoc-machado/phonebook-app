@@ -15,6 +15,7 @@ let AddContact = () => {
       company: '',
       title: '',
       groupId: '',
+      user: '1',
     },
     groups: [],
     errorMessage: '',
@@ -34,7 +35,7 @@ let AddContact = () => {
     async function fetchData() {
       try {
         setState({ ...state, loading: true });
-        let response = await ContactService.getGroups(); 
+        let response = await ContactService.getGroups();
         setState({
           ...state,
           loading: false,

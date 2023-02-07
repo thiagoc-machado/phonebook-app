@@ -11,9 +11,9 @@ let Logon = () => {
     user: {
       first_name: '',
       last_name: '',
-      username:'',
+      username: '',
       email: '',
-      password: '',
+      password: ''
     },
     passwordValid: true,
   });
@@ -30,7 +30,7 @@ let Logon = () => {
 
   let submitForm = async (event) => {
     event.preventDefault();
-    user.username = user.email
+    user.username = user.email;
     try {
       let response = await ContactService.createUser(state.user);
       if (response) {
@@ -43,7 +43,7 @@ let Logon = () => {
   };
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target; 
+    const { name, value } = event.target;
     setState({
       ...state,
       user: {

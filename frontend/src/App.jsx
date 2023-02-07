@@ -7,7 +7,9 @@ import Routers from './routers/routers';
 import { AuthContext } from './services/UserService';
 
 let App = () => {
-  const [data, dispatch] = useReducer(authReducer, { token: localStorage.getItem('token') }); 
+  const [data, dispatch] = useReducer(authReducer, {
+    token: localStorage.getItem('token'),
+  });
 
   const loginThunk = async (username, password) => {
     const res = await axios.post('http://localhost:8000/auth/', {
@@ -30,6 +32,5 @@ let App = () => {
     </>
   );
 };
-
 
 export default App;
