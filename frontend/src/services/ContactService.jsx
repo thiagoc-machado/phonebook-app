@@ -29,13 +29,13 @@ export class ContactService {
 
   static createContact(contact) {
     let dataURL = `${this.serverURL}/contacts/contacts/`;
-    console.log(dataURL, contact)
+
     return axios.post(dataURL, contact);
   }
 
   static updateContact(contact, contactId) {
     let dataURL = `${this.serverURL}/contacts/contacts/${contactId}/`;
-    console.log(contact);
+
     return axios.put(dataURL, contact);
   }
 

@@ -13,8 +13,9 @@ let Logon = () => {
       last_name: '',
       username: '',
       email: '',
-      password: ''
+      password: '',
     },
+
     passwordValid: true,
   });
 

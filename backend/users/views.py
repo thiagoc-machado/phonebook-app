@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password
 @api_view(['GET', 'POST'])
 def user_View(request):
     if request.method == 'POST':
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data= request.data)
         if serializer.is_valid():
             password = request.data['password']
             serializer.validated_data['password'] = make_password(password)
