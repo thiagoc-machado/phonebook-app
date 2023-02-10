@@ -3,8 +3,8 @@ import { useReducer } from 'react';
 
 
 export class ContactService {
-  //static serverURL = 'http://localhost:9000';
-  static serverURL = 'http://localhost:8000';
+  //static serverURL = 'http://localhost:8000';
+  static serverURL = 'https://phonebook-gf8u.onrender.com/';
 
   static getGroups() {
     let dataURL = `${this.serverURL}/groups/groups`;

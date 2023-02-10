@@ -12,7 +12,8 @@ let App = () => {
   });
 
   const loginThunk = async (username, password) => {
-    const res = await axios.post('http://localhost:8000/auth/', {
+    //const res = await axios.post('http://localhost:8000/auth/', {
+    const res = await axios.post('https://phonebook-gf8u.onrender.com/auth/', {
       username: username,
       password: password,
     });
